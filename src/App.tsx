@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import NavBar from "./shared/Navbar";
+import { TodoForm } from "./shared/TodoForm";
+import { useTodoList } from "./hooks";
+import TodoList from "./shared/TodoList";
 
-function App() {
+const App: React.FC = () => {
+
+  const { value, todos, onValueChange, onPressHandler } = useTodoList();
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <div className="container">
+        <TodoForm
+          value={value}
+          onChange={onValueChange}
+          onPress={onPressHandler}
+        />
+        <TodoList todos={todos}/>
+      </div>
+    </>
   );
-}
+};
 
 export default App;

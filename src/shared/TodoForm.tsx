@@ -2,7 +2,7 @@ import React from "react";
 import { ITodoForm } from "../types";
 
 export const TodoForm: React.FC<ITodoForm> = ({ value, onChange, onPress }) => {
-    
+
   return (
     <div className="input-field col s12">
       <input
@@ -13,7 +13,7 @@ export const TodoForm: React.FC<ITodoForm> = ({ value, onChange, onPress }) => {
         type="email"
         className="validate"
       />
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">Todos</label>
     </div>
   )
 };

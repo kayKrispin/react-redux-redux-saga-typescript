@@ -41,3 +41,20 @@
 .container {
   margin-top: 2rem;
 }
+
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.input-check {
+  pointer-events: all!important;
+  z-index: 3;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+

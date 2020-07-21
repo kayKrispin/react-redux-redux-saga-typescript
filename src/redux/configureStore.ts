@@ -11,7 +11,7 @@ export const rootReducer = combineReducers({
 // eslint-disable-next-line no-undef
 export type AppState = ReturnType<typeof rootReducer>;
 
-export default function configureStore() {
+function configureStore() {
   const sagaMiddleware = createSagaMiddleware();
 
   // Combine all middlewares into single enhancer
@@ -31,3 +31,4 @@ export default function configureStore() {
   return store;
 }
 
+export const store = configureStore()

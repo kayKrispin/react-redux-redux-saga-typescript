@@ -2,10 +2,6 @@ import * as types from "../actionTypes";
 import { ModelTypes, ITodo } from "../../types";
 import { ColorsActions, TodosActions } from "../../types/actions";
 
-export const addTodoRequest = (): TodosActions => ({
-  type: types.ADD_TODO,
-  payload: todo
-});
 
 export const addTodo = (todo: ITodo): TodosActions => ({
   type: types.ADD_TODO,

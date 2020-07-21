@@ -1,13 +1,13 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import * as types from "../actionTypes";
-import { ITodo } from "../../types";
+import { TodosActions } from "../../types/actions";
 
 
-function *todosSaga (params: ITodo) {
-
+function *todosSaga (params: TodosActions) {
+  
   try {
     // eslint-disable-next-line no-undef
-    yield put({ type: types.ADD_TODO, payload: params });
+    yield put({ type: typeof types.ADD_TODO, payload: params });
   } catch (error) {
     console.warn(error)
   }
@@ -15,6 +15,6 @@ function *todosSaga (params: ITodo) {
 
 export default function *() {
   yield all([
-    yield takeLatest(types.GET_FILMS_REQUEST, todosSaga),
+    yield takeLatest(types.ADD_TODO, todosSaga),
   ])
 }

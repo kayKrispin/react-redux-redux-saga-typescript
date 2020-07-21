@@ -1,6 +1,5 @@
 import React from "react";
 import { INavbar } from "../types";
-import { EModelTypes } from "../types";
 
 const NavBar: React.FC<INavbar> = ({ onChange }) => {
 
@@ -12,7 +11,7 @@ const NavBar: React.FC<INavbar> = ({ onChange }) => {
           <li><a href="sass.html">Sass</a></li>
           <li><a href="badges.html">Components</a></li>
           <li><a href="collapsible.html">JavaScript</a></li>
-          <button onClick={() => onChange("hello")}>purple</button>
+          <button onClick={() => onChange("SUCCESS")}>purple</button>
         </ul>
       </div>
     </nav>

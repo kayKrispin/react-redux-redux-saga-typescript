@@ -18,9 +18,9 @@ export interface ITodoList {
     onRemove: (id: number) => void
 }
 
-export interface ITodoListState {
+export interface ITodosReducer {
     todos: ITodo [],
-    onColorChange: () => void
+    color: ModelTypes
 }
 
 export enum EModelTypes {
@@ -29,10 +29,8 @@ export enum EModelTypes {
     WARNING = "WARNING"
 }
 
-export interface IModalTypes {
-   type: EModelTypes
-}
+export type ModelTypes = keyof typeof EModelTypes
 
 export interface INavbar {
-    onChange: (type: IModalTypes) => void
+    onChange: (type: ModelTypes) => void
 }

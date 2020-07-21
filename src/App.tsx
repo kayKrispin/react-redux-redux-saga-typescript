@@ -5,13 +5,14 @@ import { TodoForm } from "./shared/TodoForm";
 import { useTodoList } from "./hooks";
 import TodoList from "./shared/TodoList";
 import { connect, ConnectedProps } from "react-redux";
-import {IModalTypes, ITodo, ITodoListState} from "./types";
+import { ModelTypes, ITodo } from "./types";
 import { AppState } from "./redux/configureStore";
 import { Dispatch } from "redux";
 import { setColor } from "./redux/actions";
 import { AppActions } from "./types/actions";
 
-const App: React.FC<PropsFromRedux> = ({ todos, onColorChange }) => {
+// eslint-disable-next-line react/prop-types
+const App: React.FC<PropsFromRedux> = ({ todos, onColorChange, color }) => {
 
   const {
     value,
@@ -20,7 +21,7 @@ const App: React.FC<PropsFromRedux> = ({ todos, onColorChange }) => {
     onToggleTodo,
     onRemoveTodo
   } = useTodoList();
-
+  
   return (
     <>
       <NavBar onChange={onColorChange} />
@@ -40,20 +41,23 @@ const App: React.FC<PropsFromRedux> = ({ todos, onColorChange }) => {
   );
 };
 
+
 interface LinkStateProp {
-  todos: ITodo[]
+    todos: ITodo [],
+    color: ModelTypes
 }
 
 interface LinkDispatchProp {
-  onColorChange: (type: IModalTypes) => void
+  onColorChange: (type: ModelTypes) => void
 }
 
 const mapState = (state: AppState): LinkStateProp => ({
-  todos: state.todos
+  todos: state.todosReducer.todos,
+  color: state.todosReducer.color
 });
 
 const mapDispatch = (dispatch: Dispatch<AppActions>): LinkDispatchProp => ({
-  onColorChange: (type: IModalTypes) => dispatch(setColor(type))
+  onColorChange: (type: ModelTypes) => dispatch(setColor(type))
 });
 
 const connector = connect(mapState, mapDispatch);

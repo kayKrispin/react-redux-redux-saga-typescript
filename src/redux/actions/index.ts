@@ -1,6 +1,11 @@
 import * as types from "../actionTypes";
-import {IModalTypes, ITodo} from "../../types";
-import {ColorsActions, TodosActions} from "../../types/actions";
+import { ModelTypes, ITodo } from "../../types";
+import { ColorsActions, TodosActions } from "../../types/actions";
+
+export const addTodoRequest = (): TodosActions => ({
+  type: types.ADD_TODO,
+  payload: todo
+});
 
 export const addTodo = (todo: ITodo): TodosActions => ({
   type: types.ADD_TODO,
@@ -17,7 +22,7 @@ export const toggleTodo = (id: number): TodosActions => ({
   payload: id
 });
 
-export const setColor = (type: IModalTypes): ColorsActions => ({
+export const setColor = (type: ModelTypes): ColorsActions => ({
   type: types.SET_COLOR,
   payload: type
 });

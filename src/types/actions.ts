@@ -1,4 +1,4 @@
-import { IModalTypes, ITodo } from "./index";
+import { ModelTypes, ITodo } from "./index";
 import { ADD_TODO, REMOVO_TODO, SET_COLOR, TOGGLE_TODO } from "../redux/actionTypes";
 
 export interface IAddTodoAction {
@@ -18,12 +18,13 @@ export interface IToggleTodoAction {
 
 export interface ISetColorAction {
     type: typeof SET_COLOR,
-    payload: IModalTypes
+    payload: ModelTypes
 }
 
 export type TodosActions =
     | IAddTodoAction
     | IRemoveTodoAction
+    | ISetColorAction
     | IToggleTodoAction;
 
 export type ColorsActions =
